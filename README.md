@@ -12,7 +12,7 @@ Basic chatbot API base on RAG
 
 1. **Run back** <a id="env-vars"></a>
 
-Following the instructions [here](back/README.md) to start the back server
+    Following the instructions [here](back/README.md) to start the back server
 
 2. **Install front requirements** <a id="venv"></a>
 
@@ -32,10 +32,11 @@ Following the instructions [here](back/README.md) to start the back server
 ## Demo
 
 **Knowlagebase**
+
 EY report PDF: [How can AI unlock value for industrials?](https://www.ey.com/en_us/insights/advanced-manufacturing/how-can-ai-unlock-value-for-industrials)
 
 **Results**
 
-**Note:** Please read from bottom to top
+    **Note:** Please read from bottom to top
 
-![Alt text](/demo_chat.jpg "Demochat image")
+   ![Alt text](/demo_chat.jpg "Demochat image")
