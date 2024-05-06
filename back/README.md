@@ -3,6 +3,8 @@
 
 ## How to run
 
+**Note:** Run the following steps in the back directory
+
 1. **Set environment variables in .env** <a id="env-vars"></a>
 
 This API uses Azure cloud resources like Blob Storage and Azure AI Search.
