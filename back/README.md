@@ -3,6 +3,8 @@
 
 ## How to run
 
+**Note:** Run the following steps in the back directory
+
 1. **Set environment variables in .env** <a id="env-vars"></a>
 
 This API uses Azure cloud resources like Blob Storage and Azure AI Search.
@@ -81,14 +83,9 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
         main()
     ~~~
 
-- **Using the Navigator**
-
-    Open `http://localhost:8000/rag/playground` in the navigator.
-
 
 # TODOs
 
 - [ ] Add error handling and tests
 - [ ] Research how monitor the calls and evaluate the - [ ] results with Azuer OpenAI Studio
-- [ ] Add forntend
 - [ ] Research why the models classes cannot be instanciated with the abstract class
