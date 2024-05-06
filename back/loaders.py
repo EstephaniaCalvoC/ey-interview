@@ -36,5 +36,5 @@ class DocumentsAzureContainer(Loader):
     def _get_chunks(self) -> List[Document]:
         documents = self.__loader.load()
 
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=250, chunk_overlap=30)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=30)
         return text_splitter.split_documents(documents)        

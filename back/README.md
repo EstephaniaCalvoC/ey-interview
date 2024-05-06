@@ -31,6 +31,16 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
     python -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
+    pip install sse_starlette
+    ~~~
+
+    If you are processing PDFs it's possible you need to install manually the following libraries
+
+    ~~~bash
+    pip install "unstructured[pdf]"
+    apt-get update && apt-get install -y ffmpeg libsm6 libxext6
+    sudo apt-get update
+    sudo apt-get install -y libgl1-mesa-dev
     ~~~
 
 3. **Indexing the information**
@@ -50,7 +60,7 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
     import requests
 
     response = requests.post(
-        "http://localhost:8000/markdown/invoke",
+        "http://localhost:8000/rag/invoke",
         json={'input': {"input": "Write your question here"}}
     )
     print(response.json()["output"])
