@@ -33,11 +33,10 @@ def get_chain(searcher: Searcher, chat_model: ChatModel):
 
 if __name__ == "__main__":
     
-    # load_dotenv()
     rag_chain = get_chain(
         searcher=AzureAISearchDocumentsRetriever(),
         chat_model=AzureOpenAIChatModel()
     )
-    result = rag_chain.invoke({"input": "What is the name of the animaly?"})
+    result = rag_chain.invoke({"input": "How can EY helpme to integrate AI in my process?"})
     
     print(result)
