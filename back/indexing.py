@@ -1,12 +1,14 @@
 from knowledgebase_loader.blob import store_documents
 from loaders import Loader, DocumentsAzureContainer
-from models.embedding_model import AzureOpenAIEmbeddingModel
+from models.embeddings import AzureOpenAIEmbeddingModel
 from vector_dbs import VectorDB, AzureAISearchVectorDB
 from utils.logging import logger
+from utils.error_handler import log_error
 
 
+@log_error(logger)
 def indexing_information(vector_db: VectorDB, loader: Loader) -> None:
-    logger.info("Init")
+    logger.debug("Init")
     
     vector_db.embed_documents(loader.chunks)
 

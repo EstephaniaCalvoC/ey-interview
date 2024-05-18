@@ -1,6 +1,6 @@
 import abc
 
-from models.embedding_model import EmbeddingModel
+from back.models.embeddings import EmbeddingModel
 from configs import AzureAISearchConfig
 from langchain_community.vectorstores.azuresearch import AzureSearch
 
