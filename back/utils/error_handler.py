@@ -1,12 +1,17 @@
-from exceptions import CustomException
-from logging import logger
+from functools import wraps
+from utils.exceptions import InternalException, ExternalException
 
-def handle_error(function):
-    def wrapper(*args, **kwargs):
-        try:
-            return function(*args, **kwargs)
-        except CustomException as e:
-            e.log_error()
-        except Exception as e:
-            logger.error(e)
-    return wrapper
+def log_error(logger): 
+    def decorator(function):
+        @wraps(function)
+        def wrapper(*args, **kwargs):
+            try:
+                return function(*args, **kwargs)
+            except InternalException as e:
+                e.log_error()
+                raise e
+            except ExternalException as e:
+                logger.error(e.message)
+                raise e.original_exception
+        return wrapper
+    return decorator

@@ -16,3 +16,5 @@ azure-storage-blob==12.19.1
 azure-search-documents==11.4.0
 azure-identity==1.16.0
 unstructured==0.12.6
+
+pytest-mock==3.14.0
