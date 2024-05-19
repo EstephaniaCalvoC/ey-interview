@@ -4,11 +4,6 @@ from utils.exceptions import ExternalException
 
 
 @pytest.fixture
-def mock_container_config(mocker):
-    return mocker.patch('knowledgebase_loader.blob.DocumentsAzureContainerConfig')
-
-
-@pytest.fixture
 def mock_blob_service_client(mocker):
     return mocker.patch.object(BlobServiceClient, 'from_connection_string')
 
@@ -18,13 +13,10 @@ def mock_blob_client(mocker):
     return mocker.patch.object(BlobServiceClient, 'get_blob_client')
 
 
-# @patch.object(DocumentsAzureContainerConfig, 'connection_string', 'mock_connection_string')
 def test_get_blob_service_client_connection_error(
-    mock_container_config,
     mock_blob_service_client
     ):
-    
-    mock_container_config.connection_string = 'mock_connection_string'
+      
     mock_blob_service_client.side_effect = Exception('Connection error')
     
     with pytest.raises(ExternalException):
