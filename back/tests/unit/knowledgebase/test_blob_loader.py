@@ -1,5 +1,5 @@
 import pytest
-from knowledgebase_loader.blob import BlobServiceClient, get_blob_service_client, upload_file_to_blob
+from knowledgebase.blob_loader import BlobServiceClient, get_blob_service_client, upload_file_to_blob
 from utils.exceptions import ExternalException
 
 

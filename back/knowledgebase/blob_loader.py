@@ -1,9 +1,9 @@
 import os
 
 from azure.storage.blob import BlobServiceClient
+from knowledgebase.exceptions import NoFilesToLoadException
 from configs import DocumentsAzureContainerConfig
 from utils.exceptions import ExternalException
-from knowledgebase_loader.exeptions import NoFilesToLoadException
 from utils.error_handler import log_error
 from utils.logging import logger
 

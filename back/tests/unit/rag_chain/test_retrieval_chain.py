@@ -1,12 +1,12 @@
 import pytest
 
 from utils.exceptions import ExternalException
-from retrieval_chain import get_chain
+from rag_chain.retrieval_chain import get_chain
 
 
 @pytest.fixture
 def mock_create_retrieval_chain(mocker):
-    return mocker.patch('retrieval_chain.create_retrieval_chain')
+    return mocker.patch('rag_chain.retrieval_chain.create_retrieval_chain')
 
 def test_get_retrieval_chain_exception(
     mocker,

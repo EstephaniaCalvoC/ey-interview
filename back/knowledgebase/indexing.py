@@ -1,5 +1,5 @@
-from knowledgebase_loader.blob import store_documents
-from loaders import Loader, DocumentsAzureContainer
+from blob_loader import store_documents
+from rag_chain.loaders import Loader, DocumentsAzureContainer
 from models.embeddings import AzureOpenAIEmbeddingModel
 from vector_dbs import VectorDB, AzureAISearchVectorDB
 from utils.logging import logger

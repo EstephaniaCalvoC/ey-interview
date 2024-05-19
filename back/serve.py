@@ -1,6 +1,6 @@
 from langserve import add_routes
 import uvicorn
-from retrieval_chain import get_azure_retrieval_chain
+from rag_chain.retrieval_chain import get_azure_retrieval_chain
 from utils.app_config import create_app, Input
 
 rag_chain = get_azure_retrieval_chain()

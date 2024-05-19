@@ -6,7 +6,7 @@ from utils.error_handler import log_error
 from utils.exceptions import ExternalException
 from utils.logging import logger
 from models.chats import ChatModel, AzureOpenAIChatModel
-from retrievers import Searcher, AzureAISearchDocumentsRetriever
+from rag_chain.retrievers import Searcher, AzureAISearchDocumentsRetriever
 
 
 def get_chain(searcher: Searcher, chat_model: ChatModel):
