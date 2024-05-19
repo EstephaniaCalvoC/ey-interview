@@ -1,17 +1,11 @@
 from langserve import add_routes
 import uvicorn
-from retrieval_chain import get_chain
+from rag_chain.retrieval_chain import get_azure_retrieval_chain
 from utils.app_config import create_app, Input
-from models.chat_model import AzureOpenAIChatModel
-from retrievers import AzureAISearchDocumentsRetriever
 
-rag_chain = get_chain(
-        searcher=AzureAISearchDocumentsRetriever(),
-        chat_model=AzureOpenAIChatModel()
-    )
+rag_chain = get_azure_retrieval_chain()
 
 app = create_app()
-
 
 add_routes(
     app,
@@ -22,4 +16,3 @@ add_routes(
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)
-
