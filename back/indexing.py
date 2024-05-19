@@ -6,7 +6,6 @@ from utils.logging import logger
 from utils.error_handler import log_error
 
 
-@log_error(logger)
 def indexing_information(vector_db: VectorDB, loader: Loader) -> None:
     logger.debug("Init")
     
@@ -15,13 +14,19 @@ def indexing_information(vector_db: VectorDB, loader: Loader) -> None:
     logger.info("Documents embedded successfully")
 
 
-if __name__ == "__main__":
-
-    store_documents()
-
+@log_error(logger)    
+def indexing_information_with_azure() -> None:
+    logger.debug("Init")
+    
     embeddings = AzureOpenAIEmbeddingModel()
 
     indexing_information(
         vector_db=AzureAISearchVectorDB(embeddings),
         loader=DocumentsAzureContainer()
     )
+
+
+if __name__ == "__main__":
+
+    store_documents()
+    indexing_information_with_azure()
