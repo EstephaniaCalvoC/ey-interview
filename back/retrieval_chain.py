@@ -5,7 +5,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains.retrieval import create_retrieval_chain
 
 from utils.logging import logger
-from models.chat_model import ChatModel, AzureOpenAIChatModel
+from models.chats import ChatModel, AzureOpenAIChatModel
 from retrievers import Searcher, AzureAISearchDocumentsRetriever
 
 

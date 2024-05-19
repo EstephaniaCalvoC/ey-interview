@@ -2,7 +2,7 @@ from langserve import add_routes
 import uvicorn
 from retrieval_chain import get_chain
 from utils.app_config import create_app, Input
-from models.chat_model import AzureOpenAIChatModel
+from models.chats import AzureOpenAIChatModel
 from retrievers import AzureAISearchDocumentsRetriever
 
 rag_chain = get_chain(
