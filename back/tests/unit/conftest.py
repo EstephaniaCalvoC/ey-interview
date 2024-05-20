@@ -21,3 +21,17 @@ def mock_documents_azure_container_config(mocker):
     mock.name = 'name'
     mock.local_path = 'local_path'
     return mock
+
+@pytest.fixture(autouse=True)
+def mock_azure_openai_chat_model_config(mocker):
+    mock = mocker.patch('configs.AzureOpenAIChatModelConfig')
+    mock.name = 'name'
+    mock.version = 'version'
+    return mock
+
+@pytest.fixture(autouse=True)
+def mock_azure_openai_embeddings_model_config(mocker):
+    mock = mocker.patch('configs.AzureOpenAIEmbeddingModelConfig')
+    mock.name = 'name'
+    mock.version = 'version'
+    return mock
