@@ -1,34 +1,34 @@
+import time
 import streamlit as st
-from streamlit_chat import message
 from langserve import RemoteRunnable
 
 
-st.set_page_config(page_title="EY Chatbo Demo", page_icon=":robot:")
+st.set_page_config(page_title="EY Chatbot Demo", page_icon=":robot:")
 st.header("EY Chatbot Demo")
 
-if "generated" not in st.session_state:
-    st.session_state["generated"] = []
 
-if "past" not in st.session_state:
-    st.session_state["past"] = []
+if "rag_chain" not in st.session_state:
+    st.session_state.rag_chain = RemoteRunnable("http://localhost:8000/rag")   
+    
+    
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+   
+    
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
 
-def get_text():
-    input_text = st.text_input("You: ", "", key="input")
-    return input_text
-
-
-user_input = get_text()
-
-remote_chain = RemoteRunnable("http://localhost:8000/rag")
-
-if user_input:
-    output = remote_chain.invoke({"input": user_input})
-    st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
-
-if st.session_state["generated"]:
-    for i in range(len(st.session_state["generated"]) - 1, -1, -1):
-        message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
+if prompt := st.chat_input("What can I help you with?"):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    
+    with st.chat_message("user"):
+        st.markdown(prompt)
+        
+    with st.chat_message("assistant"):
+        response = st.session_state.rag_chain.invoke({"input": prompt})
+        st.markdown(response)
+        
+    st.session_state.messages.append({"role": "assistant", "content": response})
         
