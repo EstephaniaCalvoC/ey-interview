@@ -1,7 +1,6 @@
 import streamlit as st
 from langserve import RemoteRunnable
 
-
 st.set_page_config(page_title="EY Chatbot Demo", page_icon=":robot:")
 st.header("EY Chatbot Demo")
 
