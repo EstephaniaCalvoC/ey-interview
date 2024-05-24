@@ -5,11 +5,9 @@ from fastapi import FastAPI
 
 
 app = FastAPI(
-        title="LangChain Server",
-        version="1.0",
-        description="A simple API server using LangChain's Runnable interfaces"
-        )
-   
+    title="LangChain Server", version="1.0", description="A simple API server using LangChain's Runnable interfaces"
+)
+
 
 if __name__ == "__main__":
     rag_chain = get_azure_retrieval_chain()

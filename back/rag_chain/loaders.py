@@ -10,26 +10,24 @@ from utils.exceptions import ExternalException
 from configs import DocumentsAzureContainerConfig
 
 
-
 class Loader(metaclass=abc.ABCMeta):
-    
+
     @property
     @abc.abstractmethod
     def chunks(self):
         return None
-    
+
 
 class DocumentsAzureContainer(Loader):
-    
+
     def __init__(self):
         self.__loader = self.__get_loader()
         self._chunks = self._get_chunks()
-        
+
     @property
     def chunks(self) -> List[Document]:
         return self._chunks
-        
-        
+
     def _get_chunks(self) -> List[Document]:
         try:
             documents = self.__loader.load()
@@ -38,12 +36,11 @@ class DocumentsAzureContainer(Loader):
             return text_splitter.split_documents(documents)
         except Exception as e:
             raise ExternalException("There was an error formatting documents", e)
-    
+
     def __get_loader(self) -> AzureBlobStorageContainerLoader:
         try:
             return AzureBlobStorageContainerLoader(
-            conn_str=DocumentsAzureContainerConfig.connection_string,
-            container=DocumentsAzureContainerConfig.name
+                conn_str=DocumentsAzureContainerConfig.connection_string, container=DocumentsAzureContainerConfig.name
             )
         except Exception as e:
             raise ExternalException("There was an error lodding documents from Azure", e)

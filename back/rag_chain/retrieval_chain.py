@@ -17,33 +17,31 @@ def get_chain(searcher: Searcher, chat_model: ChatModel):
         retrieval_chain: The generated retrieval chain
     """
     logger.debug("Init")
-    
-    try:     
+
+    try:
         prompt = ChatPromptTemplate.from_template(
             "Answer the following question based only on the next context:"
             "\n<context>\n{context}\n</context>"
             "\nQuestion: {input}"
-            )
-        
+        )
+
         document_chain = create_stuff_documents_chain(chat_model.model, prompt)
-        
+
         retrieval_chain = create_retrieval_chain(searcher.retriever, document_chain) | (lambda x: x["answer"])
-        
+
         return retrieval_chain
 
     except Exception as e:
         raise ExternalException("There was an error creating the retrieval chain", e)
 
+
 @log_error(logger)
 def get_azure_retrieval_chain():
-    return get_chain(
-        searcher=AzureAISearchDocumentsRetriever(),
-        chat_model=AzureOpenAIChatModel()
-    )
-    
-    
+    return get_chain(searcher=AzureAISearchDocumentsRetriever(), chat_model=AzureOpenAIChatModel())
+
+
 if __name__ == "__main__":
     rag_chain = get_azure_retrieval_chain()
     result = rag_chain.invoke({"input": "How can EY helpme to integrate AI in my process?"})
-    
+
     print(result)

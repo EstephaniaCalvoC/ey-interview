@@ -1,7 +1,8 @@
 from functools import wraps
 from utils.exceptions import InternalException, ExternalException
 
-def log_error(logger): 
+
+def log_error(logger):
     def decorator(function):
         @wraps(function)
         def wrapper(*args, **kwargs):
@@ -13,5 +14,7 @@ def log_error(logger):
             except ExternalException as e:
                 logger.error(e.message)
                 raise e.original_exception
+
         return wrapper
+
     return decorator
