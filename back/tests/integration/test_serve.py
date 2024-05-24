@@ -8,7 +8,8 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 
 from rag_chain.retrieval_chain import get_azure_retrieval_chain
-from serve import app, create_chain_routes
+from rag_chain.edpoints import create_chain_routes
+from serve import app
 
 from unittest.mock import patch
 
@@ -29,7 +30,7 @@ def fake_retriever():
     return db_vector.as_retriever()
 
 
-class TestAPIHappyPaths:
+class TestAPI:
     
     responses = ["Final Answer 1", "Final Answer 2"]
 
@@ -41,7 +42,7 @@ class TestAPIHappyPaths:
             create_chain_routes(app, rag_chain)
             return TestClient(app)
 
-    def test_rag_invoke_valid_call_cls(self, client):
+    def test_rag_invoke_valid_call(self, client):
     
         response = client.post(
             "/rag/invoke",
@@ -49,4 +50,25 @@ class TestAPIHappyPaths:
             )
         assert response.status_code == 200
         assert response.json()["output"] in self.responses
+        
+    def test_rag_invoke_invalid_body_schema(self, client):
+    
+        response = client.post(
+            "/rag/invoke",
+            json={"input": "Invalid formatted input"}
+            )
+        assert response.status_code == 400
+    
+    def test_rag_invoke_missing_input_field(self, client):
+        response = client.post(
+            "/rag/invoke",
+            json={"input": {"answer": "It must be 'input' instead 'answer'"}}
+            )
+        assert response.status_code == 422
+        
+    def test_rag_input_schema(self, client):
+        response = client.get(
+            "/rag/input_schema"
+            )
+        assert response.status_code == 200
         
