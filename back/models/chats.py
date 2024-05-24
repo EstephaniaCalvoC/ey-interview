@@ -1,10 +1,10 @@
 import abc
-import os
 from dotenv import load_dotenv
 
 
 from langchain_openai import AzureChatOpenAI
 
+from configs import AzureOpenAIChatModelConfig
 from utils.exceptions import ExternalException
 
 load_dotenv()
@@ -27,8 +27,8 @@ class ChatModel(metaclass=abc.ABCMeta):
 class AzureOpenAIChatModel():
     
     def __init__(self):
-        self._name: str = os.environ["AZURE_OPENAI_CHAT_DEPLOYMENT_NAME"]
-        self._version: str = os.environ["AZURE_OPENAI_API_VERSION"]
+        self._name: str = AzureOpenAIChatModelConfig.name
+        self._version: str = AzureOpenAIChatModelConfig.version
         self.__model = self.__get_model()
 
     @property

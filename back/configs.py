@@ -15,3 +15,13 @@ class AzureBlobConfig():
 class DocumentsAzureContainerConfig(AzureBlobConfig):
     name = os.environ.get("DOCUMENTS_CONTAINER_NAME")
     local_path = os.getenv("LOCAL_DOCUMENTS_ABS_PATH")
+
+
+class AzureOpenAIChatModelConfig():
+    name = os.environ.get("AZURE_OPENAI_CHAT_DEPLOYMENT_NAME")
+    version = os.environ.get("AZURE_OPENAI_API_VERSION")
+    
+    
+class AzureOpenAIEmbeddingModelConfig():
+    name = os.environ.get("AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME")
+    version = os.environ.get("AZURE_OPENAI_EMBEDDING_VERSION")

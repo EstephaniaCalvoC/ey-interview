@@ -37,6 +37,4 @@ EY report PDF: [How can AI unlock value for industrials?](https://www.ey.com/en_
 
 **Results**
 
-    **Note:** Please read from bottom to top
-
-   ![Alt text](/ey-chatbot-demo.png "Demochat image")
+![Alt text](/ey-chatbot-demo.png "Demochat image")

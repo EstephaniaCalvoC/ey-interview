@@ -1,9 +1,9 @@
 import abc
-import os
 from dotenv import load_dotenv
 
 from langchain_openai import AzureOpenAIEmbeddings
 
+from configs import AzureOpenAIEmbeddingModelConfig
 from utils.exceptions import ExternalException
 
 load_dotenv()
@@ -26,8 +26,8 @@ class EmbeddingModel(metaclass=abc.ABCMeta):
 class AzureOpenAIEmbeddingModel():
     
     def __init__(self):
-        self._name: str = os.environ.get("AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME")
-        self._version: str = "2023-05-15"
+        self._name: str = AzureOpenAIEmbeddingModelConfig.name
+        self._version: str = AzureOpenAIEmbeddingModelConfig.version
         self.__model = self.__get_model()
         
     @property
