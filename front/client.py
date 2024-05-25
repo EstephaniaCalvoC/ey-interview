@@ -1,12 +1,16 @@
 import requests
 
+
+def invoke_chain():
+    response = requests.post(
+        "http://localhost:8000/rag/invoke", json={"input": {"input": "How is Mercedez-Benz using AI?"}}
+    )
+    return response.json()["output"]
+
+
 if __name__ == "__main__":
 
-    # response = requests.post(
-    #     "http://localhost:8000/rag/invoke",
-    #     json={'input': {"input": "How is Mercedez-Benz using AI?"}}
-    # )
-    # print(response.json()["output"])
+    # print(invoke_chain())
 
     response = requests.post(
         "http://localhost:8000/rag/invoke", json={"input": {"answer": "How is Mercedez-Benz using AI?"}}
