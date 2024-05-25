@@ -15,6 +15,11 @@ def invoke_chain_without_input_field():
     return response.text
 
 
+def input_schema():
+    response = requests.get("http://localhost:8000/rag/input_schema")
+    return response.text
+
+
 if __name__ == "__main__":
 
     # print(invoke_chain())
@@ -27,7 +32,4 @@ if __name__ == "__main__":
     # )
     # print(response.text)
 
-    # response = requests.get(
-    #     "http://localhost:8000/rag/input_schema"
-    # )
-    # print(response.text)
+    # print(input_schema())
