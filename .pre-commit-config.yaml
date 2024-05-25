@@ -6,11 +6,12 @@ repos:
         name: Black formatter
         types: [ python ]
         require_serial: true
-        args: [ "--check", "back"]
+        args: [ "--check", "back", "front" ]
   - repo: https://github.com/PyCQA/isort
     rev: 5.13.2
     hooks:
       - id: isort
         name: Isort formatter
         types: [ python ]
-        # args: [ "--check", "back" ]
+        require_serial: true
+        args: [ "--check", "back", "front" ]
