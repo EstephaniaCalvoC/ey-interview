@@ -63,7 +63,9 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
 
     response = requests.post(
         "http://localhost:8000/rag/invoke",
-        json={'input': {"input": "Write your question here"}}
+        json={'input': 
+        {"input": "Write your question here"}
+        }
     )
     print(response.json()["output"])
     ~~~
