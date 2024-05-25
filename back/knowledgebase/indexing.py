@@ -1,9 +1,9 @@
 from blob_loader import store_documents
-from rag_chain.loaders import Loader, DocumentsAzureContainer
 from models.embeddings import AzureOpenAIEmbeddingModel
-from vector_dbs import VectorDB, AzureAISearchVectorDB
-from utils.logging import logger
+from rag_chain.loaders import DocumentsAzureContainer, Loader
 from utils.error_handler import log_error
+from utils.logging import logger
+from vector_dbs import AzureAISearchVectorDB, VectorDB
 
 
 def indexing_information(vector_db: VectorDB, loader: Loader) -> None:

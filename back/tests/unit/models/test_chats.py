@@ -1,5 +1,4 @@
 import pytest
-
 from models.chats import AzureOpenAIChatModel
 from utils.exceptions import ExternalException
 

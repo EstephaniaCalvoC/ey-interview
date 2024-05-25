@@ -1,5 +1,4 @@
 import pytest
-
 from rag_chain.retrievers import AzureAISearchDocumentsRetriever
 from utils.exceptions import ExternalException
 

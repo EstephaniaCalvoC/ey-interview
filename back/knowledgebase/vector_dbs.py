@@ -1,9 +1,9 @@
 import abc
 
-from models.embeddings import EmbeddingModel
-from utils.exceptions import ExternalException
 from configs import AzureAISearchConfig
 from langchain_community.vectorstores.azuresearch import AzureSearch
+from models.embeddings import EmbeddingModel
+from utils.exceptions import ExternalException
 
 
 class VectorDB(metaclass=abc.ABCMeta):

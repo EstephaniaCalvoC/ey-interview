@@ -1,7 +1,6 @@
 import pytest
-
-from utils.exceptions import ExternalException
 from knowledgebase.vector_dbs import AzureAISearchVectorDB
+from utils.exceptions import ExternalException
 
 
 @pytest.fixture

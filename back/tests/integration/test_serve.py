@@ -1,17 +1,14 @@
-from fastapi.testclient import TestClient
+from unittest.mock import patch
+
 import pytest
-
-from langchain_community.llms.fake import FakeListLLM
+from fastapi.testclient import TestClient
 from langchain_community.embeddings import FakeEmbeddings
-
+from langchain_community.llms.fake import FakeListLLM
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
-
-from rag_chain.retrieval_chain import get_azure_retrieval_chain
 from rag_chain.edpoints import create_chain_routes
+from rag_chain.retrieval_chain import get_azure_retrieval_chain
 from serve import app
-
-from unittest.mock import patch
 
 
 def fake_llm_model(responses):

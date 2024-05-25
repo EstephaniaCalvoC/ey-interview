@@ -1,7 +1,6 @@
 import pytest
-
-from utils.exceptions import ExternalException
 from rag_chain.retrieval_chain import get_chain
+from utils.exceptions import ExternalException
 
 
 @pytest.fixture

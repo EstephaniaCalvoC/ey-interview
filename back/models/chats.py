@@ -1,10 +1,8 @@
 import abc
-from dotenv import load_dotenv
-
-
-from langchain_openai import AzureChatOpenAI
 
 from configs import AzureOpenAIChatModelConfig
+from dotenv import load_dotenv
+from langchain_openai import AzureChatOpenAI
 from utils.exceptions import ExternalException
 
 load_dotenv()

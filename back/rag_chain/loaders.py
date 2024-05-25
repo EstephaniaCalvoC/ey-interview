@@ -1,13 +1,11 @@
 import abc
 from typing import List
 
-from langchain_community.document_loaders import AzureBlobStorageContainerLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-
-from langchain_core.documents import Document
-
-from utils.exceptions import ExternalException
 from configs import DocumentsAzureContainerConfig
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import AzureBlobStorageContainerLoader
+from langchain_core.documents import Document
+from utils.exceptions import ExternalException
 
 
 class Loader(metaclass=abc.ABCMeta):

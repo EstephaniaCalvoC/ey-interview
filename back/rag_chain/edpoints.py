@@ -1,8 +1,9 @@
-from typing import Dict, Any
-from langserve import add_routes
-from pydantic import BaseModel
+from typing import Any, Dict
+
 from fastapi import Depends, HTTPException, Request
 from langchain.pydantic_v1 import BaseModel as LangchainBaseModel
+from langserve import add_routes
+from pydantic import BaseModel
 
 RAG_PATH = "/rag"
 

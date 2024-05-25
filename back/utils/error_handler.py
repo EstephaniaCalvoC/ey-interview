@@ -1,5 +1,6 @@
 from functools import wraps
-from utils.exceptions import InternalException, ExternalException
+
+from utils.exceptions import ExternalException, InternalException
 
 
 def log_error(logger):

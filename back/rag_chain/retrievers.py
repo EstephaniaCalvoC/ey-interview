@@ -1,6 +1,6 @@
 import abc
-from langchain_community.retrievers import AzureAISearchRetriever
 
+from langchain_community.retrievers import AzureAISearchRetriever
 from utils.exceptions import ExternalException
 
 

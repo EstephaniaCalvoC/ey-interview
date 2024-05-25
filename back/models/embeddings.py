@@ -1,9 +1,8 @@
 import abc
-from dotenv import load_dotenv
-
-from langchain_openai import AzureOpenAIEmbeddings
 
 from configs import AzureOpenAIEmbeddingModelConfig
+from dotenv import load_dotenv
+from langchain_openai import AzureOpenAIEmbeddings
 from utils.exceptions import ExternalException
 
 load_dotenv()
