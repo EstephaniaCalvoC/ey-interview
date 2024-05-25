@@ -54,7 +54,9 @@ jobs:
         pip install -r requirements.txt
     - name: Run Unit tests
       run: |
+        cd back
         python -m pytest back/tests/unit
     - name: Run Integration tests
       run: |
+        cd back
         python -m pytest back/tests/integration
