@@ -5,12 +5,12 @@ on:
     branches:
       - '**'
     paths:
-      - 'front/**.py'
+      - 'front/**'
   pull_request:
     branches:
       - 'main'
     paths:
-      - 'front/**.py'
+      - 'front/**'
 
 jobs:
   lint:
@@ -36,3 +36,4 @@ jobs:
     - name: Run Isort
       run: |
         isort --check front/
+        

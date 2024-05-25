@@ -5,12 +5,12 @@ on:
     branches:
       - '**'
     paths:
-      - 'back/**.py'
+      - 'back/**'
   pull_request:
     branches:
       - 'main'
     paths:
-      - 'back/**.py'
+      - 'back/**'
 
 jobs:
   lint:
