@@ -1,17 +1,15 @@
-name: Lint
+name: CI Front
 
 on:
   push:
     branches:
       - '**'
     paths:
-      - 'back/**.py'
       - 'front/**.py'
   pull_request:
     branches:
       - 'main'
     paths:
-      - 'back/**.py'
       - 'front/**.py'
 
 jobs:
@@ -26,7 +24,6 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.11'
-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -34,8 +31,8 @@ jobs:
 
     - name: Run Black
       run: |
-        black --check back/ front/
+        black --check front/
     
     - name: Run Isort
       run: |
-        isort --check back/ front/
+        isort --check front/
