@@ -5,7 +5,7 @@
 
 **Note:** Run the following steps in the back directory
 
-1. **Set environment variables in .env** <a id="env-vars"></a>
+1. **Set environment variables in `.env`** <a id="env-vars"></a>
 
 This API uses Azure cloud resources like Blob Storage and Azure AI Search.
 
@@ -24,8 +24,8 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
     AZURE_OPENAI_ENDPOINT=
     AZURE_OPENAI_API_KEY=
     AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=
-    AZURE_OPENAI_EMBEDDING_VERSION=
     AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=
+    AZURE_OPENAI_EMBEDDING_VERSION=
     ~~~   
 
 2. **Set virtual environment** <a id="venv"></a>
@@ -34,7 +34,6 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
     python -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
-    pip install sse_starlette
     ~~~
 
     If you are processing PDFs it's possible you need to install manually the following libraries
@@ -48,7 +47,7 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
 
 3. **Indexing the information**
     ~~~bash
-    python indexing.py
+    python knowledgebase/indexing.py
     ~~~
 
 4. **Run service**
@@ -83,10 +82,3 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
     if __name__ == "__main__":
         main()
     ~~~
-
-
-# TODOs
-
-- [ ] Add error handling and tests
-- [ ] Research how monitor the calls and evaluate the - [ ] results with Azuer OpenAI Studio
-- [ ] Research why the models classes cannot be instanciated with the abstract class
