@@ -1,6 +1,18 @@
 name: Lint
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'back/**.py'
+      - 'front/**.py'
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'back/**.py'
+      - 'front/**.py'
 
 jobs:
   lint:
