@@ -55,8 +55,8 @@ jobs:
     - name: Run Unit tests
       run: |
         cd back
-        python -m pytest back/tests/unit
+        python -m pytest tests/unit
     - name: Run Integration tests
       run: |
         cd back
-        python -m pytest back/tests/integration
+        python -m pytest tests/integration
