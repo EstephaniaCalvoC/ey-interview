@@ -1,0 +1,39 @@
+name: CI Front
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'front/**'
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'front/**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install black==24.4.2 isort==5.13.2
+
+    - name: Run Black
+      run: |
+        black --check front/
+    
+    - name: Run Isort
+      run: |
+        isort --check front/
+        
