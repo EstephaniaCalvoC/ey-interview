@@ -1,7 +1,7 @@
 import abc
 
+from app.utils.exceptions import ExternalException
 from langchain_community.retrievers import AzureAISearchRetriever
-from utils.exceptions import ExternalException
 
 
 class Searcher(metaclass=abc.ABCMeta):

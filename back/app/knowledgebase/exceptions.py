@@ -1,4 +1,4 @@
-from utils.exceptions import InternalException
+from app.utils.exceptions import InternalException
 
 
 class NoFilesToLoadException(InternalException):

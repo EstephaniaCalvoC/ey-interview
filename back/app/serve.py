@@ -1,7 +1,7 @@
 import uvicorn
+from app.rag_chain.edpoints import create_chain_routes
+from app.rag_chain.retrieval_chain import get_azure_retrieval_chain
 from fastapi import FastAPI
-from rag_chain.edpoints import create_chain_routes
-from rag_chain.retrieval_chain import get_azure_retrieval_chain
 
 app = FastAPI(
     title="LangChain Server", version="1.0", description="A simple API server using LangChain's Runnable interfaces"

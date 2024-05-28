@@ -1,6 +1,6 @@
 import pytest
-from knowledgebase.blob_loader import BlobServiceClient, get_blob_service_client, upload_file_to_blob
-from utils.exceptions import ExternalException
+from app.knowledgebase.blob_loader import BlobServiceClient, get_blob_service_client, upload_file_to_blob
+from app.utils.exceptions import ExternalException
 
 
 @pytest.fixture

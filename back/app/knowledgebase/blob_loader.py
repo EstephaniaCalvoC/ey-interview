@@ -1,11 +1,11 @@
 import os
 
+from app.configs import DocumentsAzureContainerConfig
+from app.knowledgebase.exceptions import NoFilesToLoadException
+from app.utils.error_handler import log_error
+from app.utils.exceptions import ExternalException
+from app.utils.logging import logger
 from azure.storage.blob import BlobServiceClient
-from configs import DocumentsAzureContainerConfig
-from knowledgebase.exceptions import NoFilesToLoadException
-from utils.error_handler import log_error
-from utils.exceptions import ExternalException
-from utils.logging import logger
 
 
 def get_blob_service_client() -> BlobServiceClient:

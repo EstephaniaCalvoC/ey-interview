@@ -1,11 +1,11 @@
 import pytest
-from knowledgebase.vector_dbs import AzureAISearchVectorDB
-from utils.exceptions import ExternalException
+from app.knowledgebase.vector_dbs import AzureAISearchVectorDB
+from app.utils.exceptions import ExternalException
 
 
 @pytest.fixture
 def mock_azure_search(mocker):
-    return mocker.patch("knowledgebase.vector_dbs.AzureSearch")
+    return mocker.patch("app.knowledgebase.vector_dbs.AzureSearch")
 
 
 def test_azure_ai_search_vector_db_exception(mocker, mock_azure_search):

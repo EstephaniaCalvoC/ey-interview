@@ -1,8 +1,8 @@
+from app.rag_chain.loaders import DocumentsAzureContainer, Loader
+from app.utils.error_handler import log_error
+from app.utils.logging import logger
 from blob_loader import store_documents
 from models.embeddings import AzureOpenAIEmbeddingModel
-from rag_chain.loaders import DocumentsAzureContainer, Loader
-from utils.error_handler import log_error
-from utils.logging import logger
 from vector_dbs import AzureAISearchVectorDB, VectorDB
 
 

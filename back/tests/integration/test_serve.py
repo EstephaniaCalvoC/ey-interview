@@ -1,14 +1,14 @@
 from unittest.mock import patch
 
 import pytest
+from app.rag_chain.edpoints import create_chain_routes
+from app.rag_chain.retrieval_chain import get_azure_retrieval_chain
+from app.serve import app
 from fastapi.testclient import TestClient
 from langchain_community.embeddings import FakeEmbeddings
 from langchain_community.llms.fake import FakeListLLM
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
-from rag_chain.edpoints import create_chain_routes
-from rag_chain.retrieval_chain import get_azure_retrieval_chain
-from serve import app
 
 
 def fake_llm_model(responses):
@@ -31,8 +31,8 @@ class TestAPI:
 
     @pytest.fixture(scope="class")
     def client(self):
-        with patch("models.chats.AzureChatOpenAI", return_value=fake_llm_model(self.responses)), patch(
-            "rag_chain.retrievers.AzureAISearchRetriever", return_value=fake_retriever()
+        with patch("app.models.chats.AzureChatOpenAI", return_value=fake_llm_model(self.responses)), patch(
+            "app.rag_chain.retrievers.AzureAISearchRetriever", return_value=fake_retriever()
         ):
             rag_chain = get_azure_retrieval_chain()
             create_chain_routes(app, rag_chain)
