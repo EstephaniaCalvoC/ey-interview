@@ -9,24 +9,24 @@
 
 This API uses Azure cloud resources like Blob Storage and Azure AI Search.
 
-    ~~~bash
-    AZURE_CONN_STRING=
-    DOCUMENTS_CONTAINER_NAME=
-    LOCAL_DOCUMENTS_ABS_PATH=
+~~~bash
+AZURE_CONN_STRING=
+DOCUMENTS_CONTAINER_NAME=
+LOCAL_DOCUMENTS_ABS_PATH=
 
-    AZURE_AI_SEARCH_SERVICE_NAME=
-    AZURE_AI_SEARCH_INDEX_NAME=
-    AZURE_AI_SEARCH_API_KEY=
-    VECTOR_STORE_ADDRESS=
+AZURE_AI_SEARCH_SERVICE_NAME=
+AZURE_AI_SEARCH_INDEX_NAME=
+AZURE_AI_SEARCH_API_KEY=
+VECTOR_STORE_ADDRESS=
 
 
-    AZURE_OPENAI_API_VERSION=
-    AZURE_OPENAI_ENDPOINT=
-    AZURE_OPENAI_API_KEY=
-    AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=
-    AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=
-    AZURE_OPENAI_EMBEDDING_VERSION=
-    ~~~   
+AZURE_OPENAI_API_VERSION=
+AZURE_OPENAI_ENDPOINT=
+AZURE_OPENAI_API_KEY=
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME=
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=
+AZURE_OPENAI_EMBEDDING_VERSION=
+~~~   
 
 2. **Set virtual environment** <a id="venv"></a>
 
@@ -47,13 +47,13 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
 
 3. **Indexing the information**
     ~~~bash
-    python knowledgebase/indexing.py
+    python run_indexing.py
     ~~~
 
 4. **Run service**
 
     ~~~bash
-    python serve.py
+    python run_api.py
     ~~~
 
 ## How to call
