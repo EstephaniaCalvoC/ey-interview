@@ -1,0 +1,14 @@
+name: AzureLogingTest
+
+on:
+  workflow_dispatch:
+
+jobs:
+    test_azure_permissions:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
+        - run: |
+            az resource list --name "eyst"
