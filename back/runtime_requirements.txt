@@ -14,3 +14,4 @@ azure-identity==1.16.0
 unstructured==0.12.6
 faiss-cpu==1.8.0
 sse-starlette==2.1.0
+gunicorn==22.0.0

@@ -7,7 +7,7 @@
 
 1. **Set environment variables in `.env`** <a id="env-vars"></a>
 
-This API uses Azure cloud resources like Blob Storage and Azure AI Search.
+    This API uses Azure cloud resources like Blob Storage and Azure AI Search.
 
     ~~~bash
     AZURE_CONN_STRING=
@@ -47,13 +47,13 @@ This API uses Azure cloud resources like Blob Storage and Azure AI Search.
 
 3. **Indexing the information**
     ~~~bash
-    python knowledgebase/indexing.py
+    python run_indexing.py
     ~~~
 
 4. **Run service**
 
     ~~~bash
-    python serve.py
+    python run_api.py
     ~~~
 
 ## How to call

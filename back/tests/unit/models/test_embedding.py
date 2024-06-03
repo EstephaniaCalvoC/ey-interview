@@ -1,11 +1,11 @@
 import pytest
-from models.embeddings import AzureOpenAIEmbeddingModel
-from utils.exceptions import ExternalException
+from app.models.embeddings import AzureOpenAIEmbeddingModel
+from app.utils.exceptions import ExternalException
 
 
 @pytest.fixture
 def mock_azure_openai_embeddings(mocker):
-    return mocker.patch("models.embeddings.AzureOpenAIEmbeddings")
+    return mocker.patch("app.models.embeddings.AzureOpenAIEmbeddings")
 
 
 def test_get_model_exception(mock_azure_openai_embeddings):

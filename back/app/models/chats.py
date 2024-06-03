@@ -1,14 +1,14 @@
 import abc
 
-from configs import AzureOpenAIEmbeddingModelConfig
+from app.configs import AzureOpenAIChatModelConfig
+from app.utils.exceptions import ExternalException
 from dotenv import load_dotenv
-from langchain_openai import AzureOpenAIEmbeddings
-from utils.exceptions import ExternalException
+from langchain_openai import AzureChatOpenAI
 
 load_dotenv()
 
 
-class EmbeddingModel(metaclass=abc.ABCMeta):
+class ChatModel(metaclass=abc.ABCMeta):
 
     @property
     @abc.abstractmethod
@@ -21,11 +21,11 @@ class EmbeddingModel(metaclass=abc.ABCMeta):
         return None
 
 
-class AzureOpenAIEmbeddingModel:
+class AzureOpenAIChatModel:
 
     def __init__(self):
-        self._name: str = AzureOpenAIEmbeddingModelConfig.name
-        self._version: str = AzureOpenAIEmbeddingModelConfig.version
+        self._name: str = AzureOpenAIChatModelConfig.name
+        self._version: str = AzureOpenAIChatModelConfig.version
         self.__model = self.__get_model()
 
     @property
@@ -39,6 +39,6 @@ class AzureOpenAIEmbeddingModel:
 
     def __get_model(self):
         try:
-            return AzureOpenAIEmbeddings(azure_deployment=self._name, openai_api_version=self._version)
+            return AzureChatOpenAI(openai_api_version=self._version, azure_deployment=self._name)
         except Exception as e:
             raise ExternalException("There was an error connecting to Azure OpenAI", e)

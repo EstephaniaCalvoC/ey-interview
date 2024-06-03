@@ -1,11 +1,11 @@
+from app.models.chats import AzureOpenAIChatModel, ChatModel
+from app.rag_chain.retrievers import AzureAISearchDocumentsRetriever, Searcher
+from app.utils.error_handler import log_error
+from app.utils.exceptions import ExternalException
+from app.utils.logging import logger
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains.retrieval import create_retrieval_chain
 from langchain.prompts import ChatPromptTemplate
-from models.chats import AzureOpenAIChatModel, ChatModel
-from rag_chain.retrievers import AzureAISearchDocumentsRetriever, Searcher
-from utils.error_handler import log_error
-from utils.exceptions import ExternalException
-from utils.logging import logger
 
 
 def get_chain(searcher: Searcher, chat_model: ChatModel):
