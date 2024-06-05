@@ -11,6 +11,10 @@ jobs:
           with:
             creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
         - run: |
-            # docker ps -a
-            # az acr login --name ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}
-            az acr repository list --name ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }} --output table
+            az acr login --name ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}
+            cd back
+            docker build -t ey_back:latest .
+            docker tag ey_back:latest ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}.azurecr.io/ey_back:v1
+            docker push ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}.azurecr.io/ey_back:v1
+
+            
