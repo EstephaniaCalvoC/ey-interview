@@ -11,4 +11,6 @@ jobs:
           with:
             creds: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
         - run: |
-            az resource list --name "eyst"
+            docker ps -a
+            # az acr login --name ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}
+            az acr repository list --name ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }} --output table
